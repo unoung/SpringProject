@@ -6,28 +6,31 @@
 <head>
   <meta charset="UTF-8">
   <title>fastcampus</title>
-  <link rel="stylesheet" href="<c:url value='/css/menu.css'/>">
+  <%--<link rel="stylesheet" href="<c:url value='/css/menu.css'/>">--%>
 </head>
 <body>
 <div id="menu">
   <ul>
     <li id="logo">fastcampus</li>
     <li><a href="<c:url value='/'/>">Home</a></li>
-    <li><a href="<c:url value='/board/list'/>">Board</a></li>
+    <li><a href="<c:url value='/board/list'/>">boardDto</a></li>
     <li><a href="<c:url value='/login/login'/>">login</a></li>
-    <li><a href="<c:url value='/register/add'/>">Sign in</a></li>
+    <%--<li><a href="<c:url value='/register/add'/>">Sign in</a></li>--%>
     <li><a href=""><i class="fas fa-search small"></i></a></li>
   </ul>
-</div><div style="text-align:center">
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-  </head>
-  <body>
+</div>
+<script>
+  let msg = "${msg}"
+  if(msg=="DEL_OK"){
+    alert("성공적으로 삭제되었습니다.");
+  }
+  if(msg=="DEL_ERR"){
+    alert("삭제에 실패했습니다.");
+  }
+
+</script>
+<div style="text-align:center">
+  <button type="button" id="writeBtn" onclick="location.href='<c:url value="/board/write"/>'">글쓰기</button>
   <table border="1">
     <tr>
       <th>번호</th>
@@ -36,18 +39,28 @@
       <th>등록일</th>
       <th>조회수</th>
     </tr>
-    <c:forEach var="board" items="${list}">
+    <c:forEach var="boardDto" items="${list}">
     <tr>
-      <td>${board.bno}</td>
-      <td>${board.title}</td>
-      <td>${board.writer}</td>
-      <td>${board.reg_date}</td>
-      <td>${board.view_cnt}</td>
+      <td>${boardDto.bno}</td>
+      <td><a href="<c:url value="/board/read?bno=${boardDto.bno}&page=${page}&pageSize=${pageSize}"/>">${boardDto.title}</a></td>
+      <td>${boardDto.writer}</td>
+      <td>${boardDto.reg_date}</td>
+      <td>${boardDto.view_cnt}</td>
     </tr>
     </c:forEach>
   </table>
-  </body>
-  </html>
+  <br/>
+  <div>
+    <c:if test="${ph.showPrev}">
+      <a href="<c:url value='/board/list?page=${ph.beginPage-1}&pageSize=${ph.pageSize}'/>">&lt;</a>
+    </c:if>
+    <c:forEach var = "i" begin="${ph.beginPage}" end="${ph.endPage}">
+      <a href="<c:url value="/board/list?page=${i}&pageSize=${ph.pageSize}"/>">${i}</a>
+    </c:forEach>
+    <c:if test="${ph.showNext}">
+      <a href="<c:url value='/board/list?page=${ph.endPage+1}&pageSize=${ph.pageSize}'/>">&gt;</a>
+    </c:if>
+  </div>
 </div>
 </body>
 </html>

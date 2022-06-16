@@ -12,6 +12,15 @@ public class PageHandlerTest {
         System.out.println("ph = " + ph);
         assertTrue(ph.getBeginPage() == 1);
         assertTrue(ph.getEndPage() == 10);
+    }
+
+    @Test
+    public void test2(){
+        PageHandler ph = new PageHandler(255, 10);
+        ph.print();
+        System.out.println("ph = " + ph);
+        assertTrue(ph.getBeginPage() == 1);
+        assertTrue(ph.getEndPage() == 10);
 
     }
 }
