@@ -53,7 +53,7 @@
         SET   title = #{title}
           , content = #{content}
           , up_date = now()
-        WHERE bno = #{bno}
+        WHERE bno = #{bno} and writer = #{writer}
     </update>
 
     <update id="updateCommentCnt" parameterType="map">
@@ -67,5 +67,38 @@
         SET   view_cnt = view_cnt + 1
         WHERE bno = #{bno}
     </update>
+
+    <sql id="searchCondition">
+        <choose>
+            <when test='option=="T"'>
+                and title like concat('%',#{keyword},'%')
+            </when>
+
+            <when test='option=="w"'>
+                and writer like concat('%',#{keyword},'%')
+            </when>
+            <otherwise>
+                and title like concat('%',#{keyword},'%')
+                or content like concat('%',#{keyword},'%')
+            </otherwise>
+        </choose>
+    </sql>
+
+    <select id="searchSelectPage" parameterType="SearchCondition" resultType="BoardDto">
+        SELECT bno, title, content, writer, view_cnt, comment_cnt, reg_date
+        FROM board
+        where true
+            <include refid="searchCondition"/>
+        ORDER BY reg_date DESC, bno DESC
+            LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <select id="searchResultCnt" parameterType="SearchCondition" resultType="int">
+        SELECT count(*)
+        FROM board
+        where true
+        <include refid="searchCondition"/>
+    </select>
+
 
 </mapper>
