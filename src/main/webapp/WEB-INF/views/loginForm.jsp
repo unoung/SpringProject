@@ -8,7 +8,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>fastcampus</title>
+  <title>SUN-Board</title>
   <link rel="stylesheet" href="<c:url value='/css/menu.css'/>">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
   <style>
@@ -30,13 +30,13 @@
     input[type='text'], input[type='password'] {
       width: 300px;
       height: 40px;
-      border : 1px solid rgb(89,117,196);
+      border : 1px solid cornflowerblue;
       border-radius:5px;
       padding: 0 10px;
       margin-bottom: 10px;
     }
     button {
-      background-color: rgb(89,117,196);
+      background-color: cornflowerblue;
       color : white;
       width:300px;
       height:50px;
@@ -48,6 +48,8 @@
     #title {
       font-size : 50px;
       margin: 40px 0 30px 0;
+      color: cornflowerblue;
+      font-weight: 800;
     }
     #msg {
       height: 30px;
@@ -59,16 +61,16 @@
   </style>
 </head>
 <body>
-<div id="menu">
-  <ul>
-    <li id="logo">fastcampus</li>
-    <li><a href="<c:url value='/'/>">Home</a></li>
-    <li><a href="<c:url value='/board/list'/>">Board</a></li>
-    <li><a href="<c:url value='${loginOutLink}'/>">${loginOut}</a></li>
-    <li><a href="<c:url value='/register/add'/>">Sign in</a></li>
-    <li><a href=""><i class="fa fa-search"></i></a></li>
-  </ul>
-</div>
+<%--<div id="menu">--%>
+<%--  <ul>--%>
+<%--    <li id="logo">fastcampus</li>--%>
+<%--    <li><a href="<c:url value='/'/>">Home</a></li>--%>
+<%--    <li><a href="<c:url value='/board/list'/>">Board</a></li>--%>
+<%--    <li><a href="<c:url value='${loginOutLink}'/>">${loginOut}</a></li>--%>
+<%--    <li><a href="<c:url value='/register/add'/>">Sign in</a></li>--%>
+<%--    <li><a href=""><i class="fa fa-search"></i></a></li>--%>
+<%--  </ul>--%>
+<%--</div>--%>
 <form action="<c:url value="/login/login"/>" method="post" onsubmit="return formCheck(this);">
   <h3 id="title">Login</h3>
   <div id="msg">
