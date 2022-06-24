@@ -4,7 +4,7 @@
 <%@ page session="true"%>
 <c:set var="loginId" value="${sessionScope.id}"/>
 <c:set var="loginOutLink" value="${loginId=='' ? '/login/login' : '/login/logout'}"/>
-<c:set var="loginOut" value="${loginId=='' ? 'Login' : 'ID='+=loginId}"/>
+<c:set var="loginOut" value="${loginId=='' ? 'Login' : ''+=loginId}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,11 +32,11 @@
     .board-container {
       width: 60%;
       height: 1200px;
-      margin: 0 auto;
+      margin: 50px auto;
       /* border: 1px solid black; */
     }
     .search-container {
-      background-color: rgb(253, 253, 250);
+      /*background-color: cornflowerblue;*/
       width: 100%;
       height: 110px;
       border: 1px solid #ddd;
@@ -77,23 +77,23 @@
       /* 메뉴바의 검색 버튼 아이콘  */
       width: 20%;
       height: 100%;
-      background-color: rgb(22, 22, 22);
-      color: rgb(209, 209, 209);
+      background-color: cornflowerblue;
+      color: white;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 15px;
     }
     .search-button:hover {
-      color: rgb(165, 165, 165);
+      color: rgb(187, 184, 184);
     }
     table {
       border-collapse: collapse;
       width: 100%;
-      border-top: 2px solid rgb(39, 39, 39);
+      border-top: 2px solid cornflowerblue;
     }
     tr:nth-child(even) {
-      background-color: #f0f0f070;
+      /*background-color: rgba(227, 240, 248, 0.86);*/
     }
     th,
     td {
@@ -136,9 +136,9 @@
       margin : auto;
     }
     .btn-write {
-      background-color: rgb(236, 236, 236); /* Blue background */
-      border: none; /* Remove borders */
-      color: black; /* White text */
+      background-color: white; /* Blue background */
+      border: 1px solid cornflowerblue; /* Remove borders */
+      color: cornflowerblue; /* White text */
       padding: 6px 12px; /* Some padding */
       font-size: 16px; /* Set a font size */
       cursor: pointer; /* Mouse pointer on hover */

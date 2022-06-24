@@ -24,7 +24,7 @@
       top:50%;
       left:50%;
       transform: translate(-50%, -50%) ;
-      border: 1px solid rgb(89,117,196);
+      /*border: 1px solid rgb(89,117,196);*/
       border-radius: 10px;
     }
     input[type='text'], input[type='password'] {

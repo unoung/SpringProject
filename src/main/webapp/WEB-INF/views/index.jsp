@@ -20,6 +20,15 @@
         z-index: 99;
         background: none;
     }
+
+    #logo {
+        color:white;
+        font-size: 22px;
+        font-weight: 600;
+        padding-left:40px;
+        margin-right:auto;
+        display: flex;
+    }
 </style>
 <body>
 <div id="menu">
