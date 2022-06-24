@@ -8,10 +8,11 @@ https://user-images.githubusercontent.com/84708950/175481761-ff398a3e-f93d-4340-
 # Purpose
 - 스프링 MVC 패턴과 MyBatis를 이용해서 기본적인 게시판을 만들어보았습니다.
 
-#Feature
+# Feature
 - 회원이 로그인을 하면 게시판을 볼 수 있습니다.
 - 게시글 수정 및 삭제가 가능하게 하였습니다.
 - 비회원은 회원가입을 할 수 있으며, 아이디는 3자리 이상으로 작성되어야 합니다.
+
 
 # Motivation
 - 스프링 MVC 패턴 적용
